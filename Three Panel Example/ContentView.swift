@@ -13,20 +13,22 @@ struct ContentView: View {
             LeftSidebarView()
 
             Text("Please select a file")
+                .foregroundColor(.secondary)
             Text("Select a line to inspect it")
+                .foregroundColor(.secondary)
                 .padding()
-                .frame(minWidth: 100)
+                .frame(minWidth: 200)
+                .toolbar {
+                    ToolbarItem {
+                        Button(action: toggleRightSidebar) {
+                            Image(systemName: "sidebar.right")
+                                .help("Toggle Sidebar")
+                        }
+                    }
+                }
         }
         .onAppear {
             setupSidebars()
-        }
-        .toolbar {
-            ToolbarItem {
-                Button(action: toggleRightSidebar) {
-                    Image(systemName: "sidebar.right")
-                        .help("Toggle Sidebar")
-                }
-            }
         }
     }
 }

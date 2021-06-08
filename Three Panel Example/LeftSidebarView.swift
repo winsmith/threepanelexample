@@ -12,15 +12,15 @@ struct LeftSidebarView: View {
         "file1.swift",
         "file2.swift",
         "file3.swift",
-        "docc.md"
+        "looksjustlikexcode.swift"
     ]
-    
+
     var body: some View {
         List {
             Section(header: Text("My Project")) {
                 ForEach(fileNames, id: \.self) { fileName in
                     NavigationLink(
-                        destination: MainView(fileName: fileName),
+                        destination: CodeView(fileName: fileName),
                         label: {
                             Label(fileName, systemImage: "swift")
                         }
@@ -28,6 +28,22 @@ struct LeftSidebarView: View {
                 }
             }
         }
+        .toolbar {
+            ToolbarItemGroup {
+                Button(action: toggleSidebar) {
+                    Image(systemName: "sidebar.left")
+                }
+            }
+        }
+    }
+
+    /// Toggle the left sidebar on or off
+    ///
+    /// This method is pretty hacky and I wish there was a SwiftUI equivalent where I
+    /// didn't have to dive through the responder chain.
+    private func toggleSidebar() {
+        NSApp.keyWindow?.firstResponder?
+            .tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
     }
 }
 

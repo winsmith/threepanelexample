@@ -10,18 +10,40 @@ import SwiftUI
 struct InspectorView: View {
     let line: String
     
-    var randomInt: Int {
-        return Int.random(in: 83...84914)
-    }
-    
     var body: some View {
-        VStack {
-            Text(line)
-            Divider()
-            Text("Last Updated by user \(randomInt)")
+        ScrollView {
+            VStack(alignment: .leading) {
+                VStack(alignment: .leading) {
+                    Text("Selected Line").font(.headline)
+                    Text(line)
+                        .font(.system(size: 14, design: .monospaced))
+                }
+            
+                Divider()
+            
+                VStack(alignment: .leading) {
+                    Text("Last Updated").font(.headline)
+                    Text("Last Updated by Daniel Jilg on June 8, 2021")
+                }
+            
+                Divider()
+            
+                VStack(alignment: .leading) {
+                    Text("Target Membership").font(.headline)
+                    Toggle(isOn: .constant(true), label: { Text("Three Panel Example") }).disabled(true)
+                }
+            }
         }
         .padding()
-        .frame(minWidth: 100)
+        .frame(minWidth: 200)
+        .toolbar {
+            ToolbarItem {
+                Button(action: toggleRightSidebar) {
+                    Image(systemName: "sidebar.right")
+                        .help("Toggle Sidebar")
+                }
+            }
+        }
     }
 }
 
