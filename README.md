@@ -1,3 +1,5 @@
+<img width="1378" alt="Screenshot 2021-06-08 at 22 12 54" src="https://user-images.githubusercontent.com/954120/121251022-b44cf200-c8a6-11eb-927f-efff69bc2d4c.png">
+
 # Add ability to toggle sidebars in three-pane-layout
 
 Area: SwiftUI Framework
