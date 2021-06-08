@@ -4,6 +4,7 @@
 
 Area: SwiftUI Framework
 Type of Issue: Suggestion
+Feeback ID: FB9139587
 
 When creating a destination-based Navigation View by using the init(content:)
 initializer of NavigationView, I can easily create two-pane or three-pane navigation,
