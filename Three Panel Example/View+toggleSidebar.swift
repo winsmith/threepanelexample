@@ -37,6 +37,10 @@ extension View {
         getRightSidebarSplitViewItem()?.animator().isCollapsed = false
     }
 
+    /// Find all split view items and set their minimum thickness to a sane value.
+    ///
+    /// This should be called at app startup in order to prevent sidebars being open, but so
+    /// small they are invisible.
     func setupSidebars() {
         guard let splitViewItems = getSplitViewItems() else { return }
 
